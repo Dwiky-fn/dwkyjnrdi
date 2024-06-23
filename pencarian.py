@@ -36,10 +36,6 @@ def sequential_search(data, kolom, item):
             return True, pos
     return False, -1
 
-def format_currency(value):
-    '''Format number to currency'''
-    return locale.currency(value, grouping=True)
-
 def main():
     '''UI'''
 
@@ -80,7 +76,6 @@ def main():
                 df = pd.DataFrame(filtered_products)
                 for col in df.columns:
                     if df[col].dtype == 'float64' or df[col].dtype == 'int64':
-                        df[col] = df[col].apply(format_currency)
                 st.dataframe(df)
             else:
                 st.write("Produk tidak ditemukan (substring search)")
@@ -97,7 +92,6 @@ def main():
                 df = pd.DataFrame([found_product])
                 for col in df.columns:
                     if df[col].dtype == 'float64' or df[col].dtype == 'int64':
-                        df[col] = df[col].apply(format_currency)
                 st.dataframe(df)
             else:
                 st.write("Produk tidak ditemukan (binary search)")
@@ -114,7 +108,6 @@ def main():
                 df = pd.DataFrame([products[position]])
                 for col in df.columns:
                     if df[col].dtype == 'float64' or df[col].dtype == 'int64':
-                        df[col] = df[col].apply(format_currency)
                 st.dataframe(df)
             else:
                 st.write("Produk tidak ditemukan (sequential search)")
