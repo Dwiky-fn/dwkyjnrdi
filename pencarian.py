@@ -1,11 +1,7 @@
 import json
 import streamlit as st
 import pandas as pd
-import locale
 import time
-
-# Set locale to Indonesian format
-locale.setlocale(locale.LC_ALL, 'id_ID.UTF-8')
 
 def read_json(file_path):
     '''Menggunakan file JSON'''
