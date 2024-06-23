@@ -74,8 +74,6 @@ def main():
             if filtered_products:
                 st.write(f"Produk yang mengandung {target_name} ditemukan (substring search):")
                 df = pd.DataFrame(filtered_products)
-                for col in df.columns:
-                    if df[col].dtype == 'float64' or df[col].dtype == 'int64':
                 st.dataframe(df)
             else:
                 st.write("Produk tidak ditemukan (substring search)")
@@ -90,8 +88,6 @@ def main():
             if found_product:
                 st.write("Produk ditemukan (binary search):")
                 df = pd.DataFrame([found_product])
-                for col in df.columns:
-                    if df[col].dtype == 'float64' or df[col].dtype == 'int64':
                 st.dataframe(df)
             else:
                 st.write("Produk tidak ditemukan (binary search)")
@@ -106,8 +102,6 @@ def main():
             if found:
                 st.write("Produk ditemukan (sequential search):")
                 df = pd.DataFrame([products[position]])
-                for col in df.columns:
-                    if df[col].dtype == 'float64' or df[col].dtype == 'int64':
                 st.dataframe(df)
             else:
                 st.write("Produk tidak ditemukan (sequential search)")
